@@ -10,15 +10,6 @@ name: Java CI with Maven
 
 on:
   workflow_call:
-  workflow_dispatch:
-  pull_request:
-    types: [ opened, synchronize, reopened ]
-  push:
-    branches:
-      - main
-  schedule:
-    # At 03:00 on Sunday (Please note: Github actions schedule is in UTC time).
-    - cron: '0 3 * * 0'
 
 jobs:
   build:
@@ -29,10 +20,10 @@ jobs:
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
-          java-version: '21'
-          distribution: 'temurin'
+          java-version: "21"
+          distribution: "temurin"
           cache: maven
       - name: Build with Maven
         env:
-          TZ: 'Europe/Stockholm'
+          TZ: "Europe/Stockholm"
         run: mvn -B verify --file pom.xml
