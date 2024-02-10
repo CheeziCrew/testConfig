@@ -20,9 +20,9 @@ jobs:
         run: gh pr merge --auto --merge "$PR_URL"
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
-          GITHUB_TOKEN: ${{secrets.CHEEZI_DEPENDABOT_REVIEWER_TOKEN}}
+          GH_TOKEN: ${{secrets.CHEEZI_DEPENDABOT_REVIEWER_TOKEN}}
       - name: Approve pull request
         run: gh pr review $PR_URL --approve -b "Seems legit. Approving!"
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
-          GITHUB_TOKEN: ${{secrets.CHEEZI_DEPENDABOT_REVIEWER_TOKEN}}
+          GH_TOKEN: ${{secrets.CHEEZI_DEPENDABOT_REVIEWER_TOKEN}}
