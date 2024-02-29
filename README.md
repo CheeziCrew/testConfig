@@ -1,3 +1,3 @@
 # testConfig
 
-Used to verify Swissgit things
+Used to verify Swissgit things mostly.
